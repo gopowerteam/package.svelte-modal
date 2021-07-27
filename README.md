@@ -1,17 +1,17 @@
-# Modal Componet For Vue 3
+# Modal Componet For Svelte 3
 
-基于`Vue 3`的`API`式弹窗组件
+基于`Svelte 3`的`API`式弹窗组件
 
 ### 安装(Install)
 ---
 
 ```
-npm install @gopowerteam/vue-modal --save
+npm install @gopowerteam/svelte-modal --save
 // OR
-yarn add  @gopowerteam/vue-modal
+yarn add  @gopowerteam/svelte-modal
 ```
 
-`App.vue`
+`app.svelte`
 
 ```html
 <template>
@@ -21,7 +21,7 @@ yarn add  @gopowerteam/vue-modal
 </template>
 
 <script lang="ts">
-import { ModalProvider } from "@gopowerteam/vue-modal";
+import { ModalProvider } from "@gopowerteam/Svelte-modal";
 
 export default defineComponent({
   components: {
@@ -32,11 +32,11 @@ export default defineComponent({
 
 <style>
 // 引入样式文件
-// 在vue文件中引入
-@import url('~@gopowerteam/vue-modal/dist/style.css');
+// 在Svelte文件中引入
+@import url('~@gopowerteam/svelte-modal/dist/style.css');
 
 // 或在ts/js文件中引入
-// import '@gopowerteam/vue-modal/dist/style.css'
+// import '@gopowerteam/svelte-modal/dist/style.css'
 </style>
 ```
 
@@ -46,8 +46,8 @@ export default defineComponent({
 通过使用`useModal`获取`modal`对象,然后通过`open`方法即可打开弹窗.
 
 ```typescript
-import HelloWorld from "../components/HelloWorld.vue";
-import { useModal } from "@gopowerteam/vue-modal";
+import HelloWorld from "../components/HelloWorld.svelte";
+import { useModal } from "@gopowerteam/svelte-modal";
 
 export default defineComponent({
   components: {},
@@ -86,15 +86,15 @@ modal.open(ModalOption)
 
 #### ModalOption
 
-| Name         | Type         | Default: | Description                  |
-| ------------ | ------------ | :------: | ---------------------------- |
-| component    | VueComponent |    -     | 弹窗内容组件                 |
-| props        | Object       |    -     | 弹窗内容组件的props值        |
-| title        | String       |    -     | 标题                         |
-| header       | Boolean      |   true   | 是否显示弹窗标题栏           |
-| closable     | Boolean      |   true   | 是否显示窗口关闭按钮         |
-| maskClosable | Boolean      |   true   | 点击mask区域是否可以关闭弹窗 |
-| width | Number/String      |   -  | 窗口宽度 |
+| Name         | Type            | Default: | Description                  |
+| ------------ | --------------- | :------: | ---------------------------- |
+| component    | SvelteComponent |    -     | 弹窗内容组件                 |
+| props        | Object          |    -     | 弹窗内容组件的props值        |
+| title        | String          |    -     | 标题                         |
+| header       | Boolean         |   true   | 是否显示弹窗标题栏           |
+| closable     | Boolean         |   true   | 是否显示窗口关闭按钮         |
+| maskClosable | Boolean         |   true   | 点击mask区域是否可以关闭弹窗 |
+| width        | Number/String   |    -     | 窗口宽度                     |
 
 
 ### close
@@ -133,7 +133,7 @@ modal.closeAll()
 const modal = useModal()
 modal.open(ModalOption).then(data=>{
   // 处理回传数据
-}})
+})
 ```
 
 通过`modal.close`即可将数据进行回传
