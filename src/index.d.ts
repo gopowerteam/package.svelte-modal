@@ -1,3 +1,3 @@
-import { default as ModalProvider } from './modal-provider.svelte'
-export { useModal } from './modal.service'
-export { ModalProvider }
+import { default as ModalProvider, useModal } from './modal-provider.svelte'
+
+export { ModalProvider, useModal }

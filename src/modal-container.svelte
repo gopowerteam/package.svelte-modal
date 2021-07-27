@@ -26,41 +26,47 @@
     </div>
 </template>
 
-<style lang="stylus">
-.modal-wrapper
-    z-index 10000
-    position fixed
-    top 0
-    bottom 0
-    left 0
-    right 0
-    background rgba(0, 0, 0, 0.3)
-    overflow auto
-    display flex
-    justify-content center
-    align-items center
+<style>
+.modal-wrapper {
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .modal-content 
-        background rgb(255, 255, 255)
-        padding 10px
-        border-radius 5px
-        .modal-header 
-            display flex
-            justify-content space-between
-            padding 0 10px
-            .title 
-                font-weight 600
-                font-size 16px
-            .close-button 
-                height 20px
-                cursor pointer
-        .modal-body 
-            padding 10px
+.modal-content {
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.title {
+    font-weight: 600;
+    font-size: 16px;
+}
+.close-button {
+    height: 20px;
+    cursor: pointer;
+}
+.modal-body {
+    padding: 10px;
+}
 </style>
 
 <script lang="ts">
 import { getContext, setContext, SvelteComponent } from 'svelte'
-import closeSVG from '@/assets/icons/close.svg'
+import closeSVG from './assets/icons/close.svg'
 
 export let component: SvelteComponent
 export let params: { [key: string]: any }
@@ -70,7 +76,7 @@ export let title: string
 export let header = true
 export let id: string
 export let closable = true
-export let maskClose = true
+export let maskClose = false
 
 const modal = getContext('modal') as any
 

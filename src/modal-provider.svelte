@@ -1,6 +1,6 @@
 <template>
     {#if modals.length}
-        <div class="absolute inset-0 modal-container-wrapper">
+        <div class="modal-container-wrapper">
             {#each modals as modal}
                 <ModalContainer
                     id="{modal.id}"
@@ -18,9 +18,41 @@
     <slot />
 </template>
 
+<style>
+.modal-container-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+}
+</style>
+
+<script context="module" lang="ts">
+export function useModal() {
+    const modal = getContext('modal') as any
+    const current = getContext('current-modal') as any
+
+    return {
+        open: (option: IModalOption) => {
+            return modal.open(option)
+        },
+        close: (data?: any) => {
+            const id = current?.id
+
+            if (!id) return
+
+            modal.close(id, data)
+        },
+        closeAll: () => modal.closeAll()
+    }
+}
+</script>
+
 <script lang="ts">
 import ModalContainer from './modal-container.svelte'
-import { setContext } from 'svelte'
+import { setContext, getContext } from 'svelte'
 import type { IModal, IModalOption } from './interfaces'
 
 export let minWidth: number
