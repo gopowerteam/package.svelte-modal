@@ -5,6 +5,6 @@
 </template>
 
 <script lang="ts">
-import { ModalProvider } from '@/index'
+import { ModalProvider } from '../src'
 import Page1 from './pages/page1.svelte'
 </script>

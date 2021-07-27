@@ -10,7 +10,7 @@ export default defineConfig({
     },
     build: {
         lib: {
-            entry: resolve(__dirname, 'src', 'index.ts'),
+            entry: resolve(__dirname, 'src', 'index.js'),
             name: 'modal',
             fileName: 'index'
         },
@@ -25,9 +25,5 @@ export default defineConfig({
             }
         }
     },
-    plugins: [
-        svelte({
-            experimental: { useVitePreprocess: true }
-        })
-    ]
+    plugins: [svelte()]
 })

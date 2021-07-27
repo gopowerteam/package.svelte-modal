@@ -19,7 +19,7 @@
                     </div>
                 {/if}
                 <div class="modal-body">
-                    <svelte:component this="{component}" />
+                    <svelte:component this="{component}" {...params} />
                 </div>
             </div>
         </div>

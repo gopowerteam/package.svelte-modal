@@ -1,10 +1,12 @@
 {
     "name": "@gopowerteam/svelte-modal",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "files": [
+        "src",
         "dist",
         "README.md"
     ],
+    "svelte": "src/index.js",
     "main": "./dist/index.umd.js",
     "module": "./dist/index.es.js",
     "exports": {
