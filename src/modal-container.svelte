@@ -19,7 +19,10 @@
                     </div>
                 {/if}
                 <div class="modal-body">
-                    <svelte:component this="{component}" {...params} />
+                    <svelte:component
+                        this="{component}"
+                        bind:this="{modalComponent}"
+                        {...params} />
                 </div>
             </div>
         </div>
@@ -65,7 +68,7 @@
 </style>
 
 <script lang="ts">
-import { getContext, setContext, SvelteComponent } from 'svelte'
+import { getContext, onMount, setContext, SvelteComponent } from 'svelte'
 import closeSVG from './assets/icons/close.svg'
 
 export let component: SvelteComponent
@@ -77,6 +80,9 @@ export let header = true
 export let id: string
 export let closable = true
 export let maskClose = false
+export let event: { [key: string]: (event: any) => void } = {}
+
+let modalComponent
 
 const modal = getContext('modal') as any
 
@@ -101,4 +107,10 @@ $: contentStyle = [
     }, '')
 
 setContext('current-modal', { id })
+
+onMount(() => {
+    Object.entries(event).forEach(([name, callback]) => {
+        modalComponent.$on(name, callback)
+    })
+})
 </script>

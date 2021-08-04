@@ -18,7 +18,10 @@ function onClick1() {
             msg: '123'
         },
         width: 800,
-        maskClosable: true
+        maskClosable: true,
+        event: {
+            test: () => console.log('hello world')
+        }
     })
 }
 

@@ -1,6 +1,7 @@
 interface IModalComponentOption {
     component: any
-    props: { [key: string]: any }
+    props?: { [key: string]: any }
+    event?: { [key: string]: (event: any) => void }
 }
 
 export interface IModalWindowOption {

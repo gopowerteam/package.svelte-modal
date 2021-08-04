@@ -10,7 +10,8 @@
                     closable="{modal.config.closable}"
                     maskClose="{modal.config.maskClosable}"
                     minWidth="{minWidth}"
-                    width="{modal.config.width}" />
+                    width="{modal.config.width}"
+                    event="{modal.event}" />
             {/each}
         </div>
     {/if}
@@ -66,6 +67,7 @@ async function openModal(option: IModalOption) {
             id: Math.random().toString(32).slice(2),
             component,
             props: option.props,
+            event: option.event,
             resolve,
             config: option
         })
